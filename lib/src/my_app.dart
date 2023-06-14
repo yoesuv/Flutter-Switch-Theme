@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_switch_theme/src/menu/home_screen.dart';
+import 'package:flutter_switch_theme/src/route/app_route.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      onGenerateRoute: AppRoute.routes,
     );
   }
 }
