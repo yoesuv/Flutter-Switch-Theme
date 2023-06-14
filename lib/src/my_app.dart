@@ -8,14 +8,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Switch Theme',
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.teal,
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true,
+      ),
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
-          primary: Colors.teal,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.teal,
+          brightness: Brightness.light,
         ),
         useMaterial3: true,
       ),
       onGenerateRoute: AppRoute.routes,
+      themeMode: ThemeMode.dark,
     );
   }
 }
