@@ -1,7 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_switch_theme/src/menu/home_bloc.dart';
+import 'package:flutter_switch_theme/src/menu/home_event.dart';
+import 'package:flutter_switch_theme/src/menu/home_state.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<StatefulWidget> createState() {
+    return _HomeScreenState();
+  }
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late HomeBloc _bloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc = HomeBloc();
+    _bloc.add(HomeInitEvent());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +63,7 @@ class HomeScreen extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-                Switch(
-                  value: true,
-                  onChanged: (value) {},
-                ),
+                _buildSwitch(),
               ],
             ),
           ],
@@ -62,6 +79,19 @@ class HomeScreen extends StatelessWidget {
           child: Text('EXIT'),
           onPressed: () {},
         ),
+      ),
+    );
+  }
+
+  Widget _buildSwitch() {
+    return BlocBuilder<HomeBloc, HomeState>(
+      bloc: _bloc,
+      buildWhen: (prev, current) => prev.isDarkMode != current.isDarkMode,
+      builder: (context, state) => Switch(
+        value: state.isDarkMode,
+        onChanged: (value) {
+          _bloc.add(HomeSwitchChangedEvent(value: value));
+        },
       ),
     );
   }

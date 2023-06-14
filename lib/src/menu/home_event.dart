@@ -7,8 +7,8 @@ abstract class HomeEvent extends Equatable {
 
 class HomeInitEvent extends HomeEvent {}
 
-class HomeSwitchChangedEvent extends Equatable {
-  const HomeSwitchChangedEvent({required this.value});
+class HomeSwitchChangedEvent extends HomeEvent {
+  HomeSwitchChangedEvent({required this.value});
   final bool value;
   @override
   List<Object?> get props => [value];
