@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch_theme/src/my_app_bloc.dart';
 import 'package:flutter_switch_theme/src/my_app_event.dart';
 import 'package:flutter_switch_theme/src/my_app_state.dart';
+import 'package:flutter_switch_theme/src/widgets/my_app_textview.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal,
-        title: Text(
+        title: const Text(
           'Switch Theme',
           style: TextStyle(
             fontSize: 18,
@@ -37,16 +38,15 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const MyAppTextView(
               'This application use Light/Dark theme',
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.black,
               ),
             ),
             const SizedBox(height: 10),
@@ -56,11 +56,10 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const MyAppTextView(
                   'Dark Mode',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.black,
                   ),
                 ),
                 _buildSwitch(),
@@ -88,24 +87,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildButton() {
     return Padding(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         left: 24,
         right: 24,
         bottom: 24,
       ),
       child: ElevatedButton(
-        child: Text(
-          'EXIT',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-          ),
-        ),
         onPressed: () {},
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.teal,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        child: const Text(
+          'EXIT',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
           ),
         ),
       ),

@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         builder: (context, state) => MaterialApp(
           title: 'Flutter Switch Theme',
           theme: state.themeData.copyWith(
+            brightness: state.isDark ? Brightness.dark : Brightness.light,
             scaffoldBackgroundColor:
                 state.isDark ? Colors.grey[900] : Colors.grey[100],
             colorScheme: ColorScheme.fromSwatch(
