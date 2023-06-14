@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch_theme/src/menu/home_bloc.dart';
 import 'package:flutter_switch_theme/src/menu/home_event.dart';
 import 'package:flutter_switch_theme/src/menu/home_state.dart';
+import 'package:flutter_switch_theme/src/my_app_bloc.dart';
+import 'package:flutter_switch_theme/src/my_app_event.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,12 +17,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late HomeBloc _bloc;
+  late MyAppBloc _myAppBloc;
 
   @override
   void initState() {
     super.initState();
     _bloc = HomeBloc();
     _bloc.add(HomeInitEvent());
+    _myAppBloc = context.read<MyAppBloc>();
   }
 
   @override
@@ -81,6 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
         value: state.isDarkMode,
         onChanged: (value) {
           _bloc.add(HomeSwitchChangedEvent(value: value));
+          _myAppBloc.add(MyAppThemeChangedEvent(isDark: value));
         },
       ),
     );

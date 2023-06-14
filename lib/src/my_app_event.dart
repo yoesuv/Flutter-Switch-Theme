@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 
 abstract class MyAppEvent extends Equatable {
   @override
@@ -10,11 +9,9 @@ class MyAppInitEvent extends MyAppEvent {}
 
 class MyAppThemeChangedEvent extends MyAppEvent {
   MyAppThemeChangedEvent({
-    required this.themeData,
+    required this.isDark,
   });
-  final ThemeData themeData;
+  final bool isDark;
   @override
-  List<Object?> get props => [
-        themeData,
-      ];
+  List<Object?> get props => [isDark];
 }

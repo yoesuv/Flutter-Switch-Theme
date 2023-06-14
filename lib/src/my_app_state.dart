@@ -8,6 +8,14 @@ class MyAppState extends Equatable {
 
   final ThemeData themeData;
 
+  MyAppState copyWith({
+    ThemeData? themeData,
+  }) {
+    return MyAppState(
+      themeData: themeData ?? this.themeData,
+    );
+  }
+
   @override
   List<Object?> get props => [
         themeData,

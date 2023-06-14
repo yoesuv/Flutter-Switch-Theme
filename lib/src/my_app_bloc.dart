@@ -12,5 +12,16 @@ class MyAppBloc extends Bloc<MyAppEvent, MyAppState> {
 
   void _onInit(MyAppInitEvent event, Emitter<MyAppState> emit) {}
 
-  void _onChange(MyAppThemeChangedEvent event, Emitter<MyAppState> emit) {}
+  void _onChange(MyAppThemeChangedEvent event, Emitter<MyAppState> emit) {
+    final isDark = event.isDark;
+    if (isDark) {
+      emit(state.copyWith(
+        themeData: ThemeData.dark(useMaterial3: true),
+      ));
+    } else {
+      emit(state.copyWith(
+        themeData: ThemeData.light(useMaterial3: true),
+      ));
+    }
+  }
 }
