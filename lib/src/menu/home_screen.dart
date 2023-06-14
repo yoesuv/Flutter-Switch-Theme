@@ -25,7 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
       appBar: AppBar(
         backgroundColor: Colors.teal,
         title: Text(
@@ -47,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               'This application use Light/Dark theme',
               style: TextStyle(
                 fontSize: 16,
+                color: Colors.black,
               ),
             ),
             const SizedBox(height: 10),
@@ -60,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Dark Mode',
                   style: TextStyle(
                     fontSize: 16,
+                    color: Colors.black,
                   ),
                 ),
                 _buildSwitch(),
