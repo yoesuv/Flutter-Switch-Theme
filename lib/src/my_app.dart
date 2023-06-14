@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => MyAppBloc()..add(MyAppInitEvent())),
       ],
       child: BlocBuilder<MyAppBloc, MyAppState>(
-        buildWhen: (prev, current) => prev.themeData != current.themeData,
+        buildWhen: (prev, current) => prev.isDark != current.isDark,
         builder: (context, state) => MaterialApp(
           title: 'Flutter Switch Theme',
           theme: state.themeData.copyWith(

@@ -16,10 +16,12 @@ class MyAppBloc extends Bloc<MyAppEvent, MyAppState> {
     final isDark = event.isDark;
     if (isDark) {
       emit(state.copyWith(
+        isDark: true,
         themeData: ThemeData.dark(useMaterial3: true),
       ));
     } else {
       emit(state.copyWith(
+        isDark: false,
         themeData: ThemeData.light(useMaterial3: true),
       ));
     }
