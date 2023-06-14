@@ -50,9 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontSize: 16,
               ),
             ),
-            SizedBox(height: 10),
-            Divider(height: 1, thickness: 1, color: Colors.teal),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
+            const Divider(height: 1, thickness: 1, color: Colors.teal),
+            const SizedBox(height: 10),
             Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,17 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(
-          left: 24,
-          right: 24,
-          bottom: 24,
-        ),
-        child: ElevatedButton(
-          child: Text('EXIT'),
-          onPressed: () {},
-        ),
-      ),
+      bottomNavigationBar: _buildButton(),
     );
   }
 
@@ -92,6 +82,32 @@ class _HomeScreenState extends State<HomeScreen> {
         onChanged: (value) {
           _bloc.add(HomeSwitchChangedEvent(value: value));
         },
+      ),
+    );
+  }
+
+  Widget _buildButton() {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: 24,
+        right: 24,
+        bottom: 24,
+      ),
+      child: ElevatedButton(
+        child: Text(
+          'EXIT',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+        ),
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.teal,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
       ),
     );
   }
