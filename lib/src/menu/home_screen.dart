@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_switch_theme/src/menu/show_dialog_exit.dart';
 import 'package:flutter_switch_theme/src/my_app_bloc.dart';
 import 'package:flutter_switch_theme/src/my_app_event.dart';
 import 'package:flutter_switch_theme/src/my_app_state.dart';
@@ -97,7 +97,14 @@ class _HomeScreenState extends State<HomeScreen> {
         bottom: 24,
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return const ShowDialogExit();
+            },
+          );
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.teal,
           shape: RoundedRectangleBorder(
