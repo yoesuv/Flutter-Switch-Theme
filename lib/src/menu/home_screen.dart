@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch_theme/src/my_app_bloc.dart';
@@ -77,6 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
       bloc: _myAppBloc,
       buildWhen: (prev, current) => prev.isDark != current.isDark,
       builder: (context, state) => Switch(
+        inactiveTrackColor: Colors.grey[300],
+        trackOutlineColor: MaterialStateProperty.all(Colors.transparent),
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         value: state.isDark,
         onChanged: (value) {
           _myAppBloc.add(MyAppThemeChangedEvent(isDark: value));
