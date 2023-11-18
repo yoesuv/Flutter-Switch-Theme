@@ -111,11 +111,16 @@ class _HomeScreenState extends State<HomeScreen> {
             borderRadius: BorderRadius.circular(8),
           ),
         ),
-        child: const Text(
-          'EXIT',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18,
+        child: const Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: 12,
+          ),
+          child: Text(
+            'EXIT',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+            ),
           ),
         ),
       ),
