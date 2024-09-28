@@ -1,14 +1,14 @@
 ## Flutter switch Light/Dark Theme ##
 
 basic flutter app for switch theme.  
-download apk file [here](https://e.pcloud.link/publink/show?code=XZhh6DZwEhLsdoonTjX4sIEUiCuLXzfWVNk)
+download apk file [here](https://e.pcloud.link/publink/show?code=XZfdVCZbY8Slv8dlXy2608wKf1nHQqPKHGV)
 
 #### Dependencies ####
 ```
-Flutter 3.16.0 • channel stable • https://github.com/flutter/flutter.git
-Framework • revision db7ef5bf9f (13 days ago) • 2023-11-15 11:25:44 -0800
-Engine • revision 74d16627b9
-Tools • Dart 3.2.0 • DevTools 2.28.2
+Flutter 3.24.3 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 2663184aa7 (2 weeks ago) • 2024-09-11 16:27:48 -0500
+Engine • revision 36335019a8
+Tools • Dart 3.5.3 • DevTools 2.37.3
 ```
 
 #### Screenshot Android ####

@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
       buildWhen: (prev, current) => prev.isDark != current.isDark,
       builder: (context, state) => Switch(
         inactiveTrackColor: Colors.grey[300],
-        trackOutlineColor: MaterialStateProperty.all(Colors.transparent),
+        trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         value: state.isDark,
         onChanged: (value) {
