@@ -9,7 +9,10 @@ class ShowDialogExit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    
     return AlertDialog(
+      backgroundColor: isDarkMode ? Colors.grey[850] : Colors.white,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
