@@ -4,7 +4,7 @@ import 'package:flutter_switch_theme/src/menu/show_dialog_exit.dart';
 import 'package:flutter_switch_theme/src/my_app_bloc.dart';
 import 'package:flutter_switch_theme/src/my_app_event.dart';
 import 'package:flutter_switch_theme/src/my_app_state.dart';
-import 'package:flutter_switch_theme/src/widgets/my_app_textview.dart';
+ 
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const MyAppTextView(
+              const Text(
                 'This application use Light/Dark theme',
                 style: TextStyle(fontSize: 16),
               ),
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const MyAppTextView(
+                  const Text(
                     'Dark Mode',
                     style: TextStyle(fontSize: 16),
                   ),
