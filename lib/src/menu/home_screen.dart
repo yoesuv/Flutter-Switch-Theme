@@ -1,10 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch_theme/src/menu/show_dialog_exit.dart';
 import 'package:flutter_switch_theme/src/my_app_bloc.dart';
 import 'package:flutter_switch_theme/src/my_app_event.dart';
 import 'package:flutter_switch_theme/src/my_app_state.dart';
- 
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -56,10 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Dark Mode',
-                    style: TextStyle(fontSize: 16),
-                  ),
+                  const Text('Dark Mode', style: TextStyle(fontSize: 16)),
                   _buildSwitch(),
                 ],
               ),
@@ -89,7 +87,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildButton() {
     return Padding(
-      padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
+      padding: EdgeInsets.only(
+        left: 24,
+        right: 24,
+        bottom: Platform.isAndroid ? 24 : 0,
+      ),
       child: ElevatedButton(
         onPressed: () {
           showDialog(
