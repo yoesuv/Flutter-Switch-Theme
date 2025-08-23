@@ -1,10 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch_theme/src/menu/show_dialog_exit.dart';
 import 'package:flutter_switch_theme/src/my_app_bloc.dart';
 import 'package:flutter_switch_theme/src/my_app_event.dart';
 import 'package:flutter_switch_theme/src/my_app_state.dart';
-import 'package:flutter_switch_theme/src/widgets/my_app_textview.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -38,38 +39,33 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const MyAppTextView(
-              'This application use Light/Dark theme',
-              style: TextStyle(
-                fontSize: 16,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'This application use Light/Dark theme',
+                style: TextStyle(fontSize: 16),
               ),
-            ),
-            const SizedBox(height: 10),
-            const Divider(height: 1, thickness: 1, color: Colors.teal),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const MyAppTextView(
-                  'Dark Mode',
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-                _buildSwitch(),
-              ],
-            ),
-          ],
+              const SizedBox(height: 10),
+              const Divider(height: 1, thickness: 1, color: Colors.teal),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Dark Mode', style: TextStyle(fontSize: 16)),
+                  _buildSwitch(),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
-      bottomNavigationBar: _buildButton(),
+      bottomNavigationBar: SafeArea(child: _buildButton()),
     );
   }
 
@@ -91,10 +87,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildButton() {
     return Padding(
-      padding: const EdgeInsets.only(
+      padding: EdgeInsets.only(
         left: 24,
         right: 24,
-        bottom: 24,
+        bottom: Platform.isAndroid ? 24 : 0,
       ),
       child: ElevatedButton(
         onPressed: () {
@@ -107,20 +103,13 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.teal,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
         child: const Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: 12,
-          ),
+          padding: EdgeInsets.symmetric(vertical: 12),
           child: Text(
             'EXIT',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-            ),
+            style: TextStyle(color: Colors.white, fontSize: 18),
           ),
         ),
       ),

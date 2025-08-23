@@ -2,25 +2,28 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_switch_theme/src/widgets/my_app_textview.dart';
+ 
 
 class ShowDialogExit extends StatelessWidget {
   const ShowDialogExit({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    
     return AlertDialog(
+      backgroundColor: isDarkMode ? Colors.grey[850] : Colors.white,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
-      title: const MyAppTextView(
+      title: const Text(
         'EXIT',
         style: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
         ),
       ),
-      content: const MyAppTextView(
+      content: const Text(
         'Exit from application?',
         style: TextStyle(
           fontSize: 16,
@@ -36,7 +39,7 @@ class ShowDialogExit extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          child: const MyAppTextView(
+          child: const Text(
             'Batal',
             style: TextStyle(
               fontSize: 14,
@@ -57,7 +60,7 @@ class ShowDialogExit extends StatelessWidget {
               exit(0);
             }
           },
-          child: const MyAppTextView(
+          child: const Text(
             'Oke',
             style: TextStyle(
               fontSize: 14,
