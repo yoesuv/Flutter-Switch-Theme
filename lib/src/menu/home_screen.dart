@@ -38,38 +38,36 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const MyAppTextView(
-              'This application use Light/Dark theme',
-              style: TextStyle(
-                fontSize: 16,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const MyAppTextView(
+                'This application use Light/Dark theme',
+                style: TextStyle(fontSize: 16),
               ),
-            ),
-            const SizedBox(height: 10),
-            const Divider(height: 1, thickness: 1, color: Colors.teal),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const MyAppTextView(
-                  'Dark Mode',
-                  style: TextStyle(
-                    fontSize: 16,
+              const SizedBox(height: 10),
+              const Divider(height: 1, thickness: 1, color: Colors.teal),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const MyAppTextView(
+                    'Dark Mode',
+                    style: TextStyle(fontSize: 16),
                   ),
-                ),
-                _buildSwitch(),
-              ],
-            ),
-          ],
+                  _buildSwitch(),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
-      bottomNavigationBar: _buildButton(),
+      bottomNavigationBar: SafeArea(child: _buildButton()),
     );
   }
 
@@ -91,11 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildButton() {
     return Padding(
-      padding: const EdgeInsets.only(
-        left: 24,
-        right: 24,
-        bottom: 24,
-      ),
+      padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
       child: ElevatedButton(
         onPressed: () {
           showDialog(
@@ -107,20 +101,13 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.teal,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
         child: const Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: 12,
-          ),
+          padding: EdgeInsets.symmetric(vertical: 12),
           child: Text(
             'EXIT',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-            ),
+            style: TextStyle(color: Colors.white, fontSize: 18),
           ),
         ),
       ),

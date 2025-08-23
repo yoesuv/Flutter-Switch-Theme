@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch_theme/src/my_app_bloc.dart';
 import 'package:flutter_switch_theme/src/my_app_event.dart';
@@ -20,10 +21,20 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Switch Theme',
           theme: state.themeData.copyWith(
             brightness: state.isDark ? Brightness.dark : Brightness.light,
-            scaffoldBackgroundColor:
-                state.isDark ? Colors.grey[900] : Colors.grey[100],
-            colorScheme: ColorScheme.fromSwatch(
-              primarySwatch: Colors.teal,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.teal,
+              brightness: state.isDark ? Brightness.dark : Brightness.light,
+            ),
+            scaffoldBackgroundColor: state.isDark
+                ? Colors.grey[900]
+                : Colors.grey[100],
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Colors.teal,
+              foregroundColor: Colors.white,
+              systemOverlayStyle: SystemUiOverlayStyle.light,
+            ),
+            switchTheme: const SwitchThemeData(
+              trackOutlineColor: WidgetStatePropertyAll(Colors.transparent),
             ),
           ),
           onGenerateRoute: AppRoute.routes,
